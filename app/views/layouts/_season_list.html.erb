@@ -1,0 +1,9 @@
+<div class="dropdown-menu" aria-labelledby="dropdown_archive">
+  <% list.each do |year, data| %>
+    <h6 class="dropdown-header season_nav_header"><%= year %></h6>
+    <% data.each do |item| %>
+      <a class="dropdown-item season_nav_item" href="/seasons/<%= item[:id] %>"><small><%= item[:name] %></small></a>
+    <% end %>
+    <div class="dropdown-divider"></div>
+  <% end %>
+</div>
