@@ -16,6 +16,8 @@ class GigDashboard < Administrate::BaseDashboard
     ),
     performances: PerformanceField,
     description: Field::Text,
+    image: ImageField,
+    website: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -39,7 +41,9 @@ class GigDashboard < Administrate::BaseDashboard
     :act,
     :performances,
     :season,
+    :image,
     :description,
+    :website,
     :created_at,
   ].freeze
 
@@ -50,8 +54,10 @@ class GigDashboard < Administrate::BaseDashboard
     :date,
     :act,
     :performances,
+    :image,
     :season,
     :description,
+    :website,
   ].freeze
 
   # Overwrite this method to customize how gigs are displayed

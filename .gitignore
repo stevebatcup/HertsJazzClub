@@ -27,3 +27,5 @@ config/database.yml
 # Sssshhhh secrets!
 /config/application.yml
 
+public/uploads
+
