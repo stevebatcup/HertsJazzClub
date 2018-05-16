@@ -1,4 +1,12 @@
 class SeasonsController < ApplicationController
+	def index
+		if params[:season]
+			redirect_to season_path(params[:season])
+		else
+			@seasons = Season.where(is_current: false)
+		end
+	end
+
 	def show
 		if request.path.include?('current-season')
 			@is_current = true

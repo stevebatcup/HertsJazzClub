@@ -22,7 +22,7 @@
       <% @upcoming_gigs.each do |gig| %>
         <% link = gig.is_festival? ? gig.website : gig_path(gig) %>
         <div class="col-lg-3 item">
-          <%= link_to image_tag(gig.image.url(:small)), link, target: gig.is_festival? ? '_blank' : '_self' %>
+          <%= link_to image_tag(gig.image.url(device_image_size)), link, target: gig.is_festival? ? '_blank' : '_self' %>
           <% if gig.children %>
             <h3><%= link_to "Double Bill", link, target: '_blank' %></h3>
             <h4 class="double_bill"><%= link_to "#{gig.act} & #{gig.children.act}", link, target: '_blank' %></h4>

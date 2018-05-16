@@ -1,0 +1,43 @@
+body.mobile {
+	padding-bottom: 35px;
+
+	#home {
+		.marketing {
+			.item {
+				height: initial !important;
+				padding-bottom: 46px;
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	.container#seasons{
+		.gig {
+			height: initial;
+
+			h5 {
+				margin-bottom: 0;
+			}
+
+			div.buttons {
+				position: static !important;
+				width: initial !important;
+				margin-bottom: 15px;
+			}
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+
+	.container#gig {
+		#back_to_season {
+			display: none;
+		}
+
+		#photo_and_desc {
+			padding-bottom: 20px;
+		}
+	}
+}

@@ -82,7 +82,8 @@ main {
 	border-radius: 3px;
 }
 
-form#newsletter-form {
+form#newsletter-form,
+form#season-form {
 	width: 100%;
   max-width: 330px;
   padding: 15px;
@@ -101,6 +102,7 @@ form#newsletter-form {
 
 			img {
 				border-radius: 3px;
+				width: 100%;
 			}
 
 			h3 {

@@ -8,7 +8,7 @@
 		<% @season.gigs.each do |gig| %>
 			<% if gig.parents.nil? %>
 				<% link = gig.is_festival? ? gig.website : gig_path(gig) %>
-				<div class="col-md-3 col-sm-12 season">
+				<div class="col-md-3 col-sm-12 gig">
 					<h5>
 						<% if gig.ends.strftime("%e") != gig.starts.strftime("%e") %>
 							<%= gig.starts.strftime("%A %B %e") %> - <br /><%= gig.ends.strftime("%A %B %e, %Y") %>
