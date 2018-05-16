@@ -1,0 +1,16 @@
+<% if field.resource.parents %>
+	<div class="field-unit__label">
+		<label>Selected as a double bill of</label>
+	</div>
+	<div class="field-unit__field">
+		<b><%= link_to field.resource.parents.precis, edit_admin_gig_path(field.resource.parents.id) %></b>
+	</div>
+<% else %>
+	<div class="field-unit__label">
+	  <%= f.label field.attribute %>
+	</div>
+
+	<div class="field-unit__field">
+	  <%= f.collection_select(field.attribute, field.choices, :id, :precis, include_blank: 'Select the 2nd gig in this double bill, if any...', :selected => field.data ? field.data.id : 0) %>
+	</div>
+<% end %>

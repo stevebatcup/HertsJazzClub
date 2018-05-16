@@ -11,13 +11,20 @@ class GigDashboard < Administrate::BaseDashboard
     id: Field::Number,
     act: Field::String,
     season: Field::BelongsTo,
-    date: Field::DateTime.with_options(
-      format: "%y-%M-%d"
-    ),
+    starts: Field::DateTime,
+    ends: Field::DateTime,
     performances: PerformanceField,
     description: Field::Text,
     image: ImageField,
-    website: Field::String,
+    website: Field::StringWithHintField.with_options(
+      hint: "seperate multiple websites with a comma<br />e.g. www.website1.com, www.website2.com"
+    ),
+    pricing_tier: PricingTierField,
+    booking_url: Field::String,
+    gallery_url: Field::String,
+    children: SelectField.with_options(
+      choices: Gig.all
+    ),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -28,22 +35,27 @@ class GigDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :date,
+    :starts,
     :act,
     :performances,
-    :season
+    :season,
+    :pricing_tier,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :date,
+    :starts,
+    :ends,
     :act,
     :performances,
     :season,
     :image,
     :description,
     :website,
+    :pricing_tier,
+    :booking_url,
+    :gallery_url,
     :created_at,
   ].freeze
 
@@ -51,13 +63,18 @@ class GigDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :date,
+    :starts,
+    :ends,
     :act,
     :performances,
-    :image,
     :season,
     :description,
+    :image,
     :website,
+    :pricing_tier,
+    :booking_url,
+    :gallery_url,
+    :children,
   ].freeze
 
   # Overwrite this method to customize how gigs are displayed

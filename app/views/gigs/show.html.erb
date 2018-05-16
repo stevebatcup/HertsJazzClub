@@ -1,0 +1,38 @@
+<div class="container" id="gig">
+	<h2><%= @gig.act %></h2>
+	<div class="row">
+		<div class="col-md-7">
+			<%= image_tag(@gig.image.url(:large)) %>
+			<%= simple_format @gig.description %>
+			<h5>
+				<% @gig.website.split(",").each do |website| %>
+					<%= link_to website.strip, "http://#{website.strip}", target: :blank %><br />
+				<% end %>
+			</h5>
+			<a id="back_to_season" href="<%= season_path(@gig.season) %>">< Back to season page</a>
+		</div>
+
+		<div class="col-md-5">
+			<h4 class="text-muted">
+				<% if @gig.has_passed? %>
+					<%= @gig.starts.strftime("%A %B %e, %Y") %>
+				<% else %>
+					<%= @gig.starts.strftime("%A %B %e, %Y starting at %H:%M") %>
+				<% end %>
+			</h4>
+			<ul id="players">
+				<% @gig.performances.group_by(&:musician_id).each do |key, item| %>
+					<% instruments = item.map(&:instrument).map(&:name).join(", ") %>
+					<li>> <%= Musician.find(key).full_name %> - <%= instruments %></li>
+				<% end %>
+			</ul>
+			<% if @gig.gallery_url.present? %>
+				<a href='<%= @gig.gallery_url %>' class='btn btn-success btn-block' target="_blank">See photos from this show *</a>
+				<small>* Photos by Melody and Ian MacLaren, available here with their kind permission.</small>
+			<% elsif @gig.is_bookable? %>
+				<%= render partial: 'prices', locals: { tier: @gig.pricing_tier.to_s } %>
+				<a href='<%= @gig.booking_url %>' class='btn btn-success btn-block' target="_blank">Book now</a>
+			<% end %>
+		</div>
+	</div>
+</div>

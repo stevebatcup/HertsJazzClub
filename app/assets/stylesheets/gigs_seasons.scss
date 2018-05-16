@@ -1,0 +1,60 @@
+.container#seasons {
+	.season {
+		height: 600px;
+		position: relative;
+		margin-bottom: 20px;
+
+		h5 {
+			background: $grey_bg;
+			padding: 5px 0;
+			font-size: 0.9em;
+			text-align: center;
+		}
+
+		h3.double_bill {
+			font-size: 1.1em;
+			a {
+				color: #777;
+			}
+		}
+
+		h2 {
+			font-size: 1.4em;
+			line-height: 1.4em;
+			max-height: 2.8em;
+			overflow: hidden;
+			margin: 5px 0 1px;
+		}
+
+		div.buttons {
+			position: absolute;
+			bottom: 25px;
+			left: 5%;
+			width: 90%;
+		}
+	}
+}
+
+.container#gig {
+	#back_to_season {
+		margin-top: 40px;
+		display: block;
+	}
+
+	img {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	ul#players {
+		padding: 5px 0 0 0;
+
+		li {
+			background: desaturate($blue, 35%);
+			color: #fff;
+			list-style: none;
+			padding: 4px 8px;
+			margin-bottom: 5px;
+		}
+	}
+}

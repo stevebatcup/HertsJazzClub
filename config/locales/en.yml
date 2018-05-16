@@ -24,5 +24,6 @@ en:
     label:
       gig:
         performances: Performers
+        children: Double billed with
       musician:
         instrument_ids: Instruments

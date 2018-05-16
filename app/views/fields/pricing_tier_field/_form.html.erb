@@ -1,0 +1,11 @@
+<div class="field-unit__label">
+  <label>Pricing Tier</label>
+</div>
+<div class="field-unit__field">
+  <label for="pricing_tier_one">
+  	<input type="radio" name="gig[pricing_tier]" id="pricing_tier_one" value="1" <%= 'checked' if field.data.to_i == 1 %> /> Basic
+  </label>
+  <label for="pricing_tier_two">
+  	<input type="radio" name="gig[pricing_tier]" id="pricing_tier_two" value="2" <%= 'checked' if field.data.to_i == 2 %> /> Premium
+  </label>
+</div>

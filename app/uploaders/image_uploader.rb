@@ -8,7 +8,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   version :large do
-    process resize_to_fill: [500, 500]
+    process resize_to_fill: [640, 427]
 
     def store_dir
       "uploads/#{Rails.env}/gigs/#{model.id}"
@@ -16,7 +16,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :small do
-    process resize_to_fill: [250, 250]
+    process resize_to_fill: [250, 167]
 
     def store_dir
       "uploads/#{Rails.env}/gigs/#{model.id}"

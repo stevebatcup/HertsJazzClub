@@ -10,7 +10,8 @@ class MusicianDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     instruments: Field::HasMany,
     id: Field::Number,
-    name: Field::String,
+    first_name: Field::String,
+    last_name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -21,14 +22,16 @@ class MusicianDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :name,
+    :first_name,
+    :last_name,
     :instruments,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :name,
+    :first_name,
+    :last_name,
     :instruments,
     :created_at,
     :updated_at,
@@ -38,7 +41,8 @@ class MusicianDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :name,
+    :first_name,
+    :last_name,
     :instruments,
   ].freeze
 

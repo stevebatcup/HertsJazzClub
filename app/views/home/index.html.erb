@@ -1,10 +1,42 @@
-<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark" style="background-image: url('<%= asset_url('temp-header.jpg') %>'); background-size: cover;
-    background-repeat: no-repeat;">
-  <div class="col-md-6 px-0">
-    <h1 class="display-4">Herts Jazz</h1>
-    <h5>Since 1969</h5>
-    <p class="lead my-3">Welcome to Herts Jazz's website. We've been presenting jazz since 1969 and continue to maintain only the highest standard of performers each week, both national and international.</p>
-    <p class="lead my-3">From 3 April we will be presenting our gigs on TUESDAYS at The Maltings Arts Theatre in St Albans - a brilliant venue with capacity for 140.</p>
-    <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+<div class="container" id="home">
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">Herts Jazz <span class="text-muted">since 1969</span></h2>
+			<p class="lead my-3">Hi. Welcome to Herts Jazz's website. We've been presenting jazz since 1969 and continue to maintain only the highest standard of performers each week, both national and international.</p>
+			<p>From 3 April we will be presenting our gigs on TUESDAYS at The Maltings Arts Theatre in St Albans - a brilliant venue with capacity for 140.</p>
+			<p>See our <a href="/club-history">history</a> page for the club's background or go straight to our <a href="/current-season">current list of gigs for this season</a>. </p>
+			<p>The Herts Jazz Team wishes you a warm welcome and hopes that you can pay us a visit soon...</p>
+			<p>Cheers, Clark</p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag "clark-home.jpg", class: "featurette-image img-fluid mx-auto", alt: "Clark Tracey - Herts Jazz" %>
+    </div>
   </div>
-</div>
+
+  <hr class="featurette-divider">
+
+  <div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+  	<h2 class="featurette-heading">Upcoming <span class="text-muted">gigs</span></h2>
+    <div class="row">
+      <% @upcoming_gigs.each do |gig| %>
+        <% link = gig.is_festival? ? gig.website : gig_path(gig) %>
+        <div class="col-lg-3 item">
+          <%= link_to image_tag(gig.image.url(:small)), link, target: gig.is_festival? ? '_blank' : '_self' %>
+          <% if gig.children %>
+            <h3><%= link_to "Double Bill", link, target: '_blank' %></h3>
+            <h4 class="double_bill"><%= link_to "#{gig.act} & #{gig.children.act}", link, target: '_blank' %></h4>
+          <% else %>
+            <h3><%= link_to gig.act, link, target: gig.is_festival? ? '_blank' : '_self' %></h3>
+          <% end %>
+          <%= simple_format gig.description.truncate_words(35) %>
+          <p class="buttons"><a class="btn btn-secondary" href="<%= link %>" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-3 -->
+      <% end %>
+      <div class="col-lg-3">
+        <a class="twitter-timeline" href="https://twitter.com/HertsJazz" data-widget-id="413381579457585153">Tweets by @HertsJazz</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </div>
+    </div><!-- /.row -->
+
+</div><!-- /.container -->

@@ -15,9 +15,16 @@ by providing a `content_for(:javascript)` block.
 
 <%= javascript_tag do %>
   $(".field-unit--performance-field select").selectize({});
-  $('[data-type=date]').datetimepicker({
-  	format: 'dddd MMM D, YYYY'
-	});
+  var today = new Date();
+  var todayString = today.toISOString().slice(0,10);
+  $('#gig_starts').datetimepicker({
+    format: 'dddd MMM D, YYYY HH:mm',
+    defaultDate: todayString + ' 19:30'
+  });
+  $('#gig_ends').datetimepicker({
+    format: 'dddd MMM D, YYYY HH:mm',
+    defaultDate: todayString + ' 22:00'
+  });
 <% end %>
 
 <% if Rails.env.test? %>

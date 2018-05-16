@@ -20,7 +20,7 @@ class PerformanceField < Administrate::Field::HasMany
 
   	musicians.each do |musician|
   		musician.instruments.each do |instrument|
-	  		out << ["#{musician.name} --> #{instrument.name}", "#{musician.id}_#{instrument.id}"]
+	  		out << ["#{musician.full_name} --> #{instrument.name}", "#{musician.id}_#{instrument.id}"]
 	  	end
   	end
   	out

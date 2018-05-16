@@ -1,9 +1,16 @@
-<div class="dropdown-menu" aria-labelledby="dropdown_archive">
+<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdown_archive">
   <% list.each do |year, data| %>
-    <h6 class="dropdown-header season_nav_header"><%= year %></h6>
-    <% data.each do |item| %>
-      <a class="dropdown-item season_nav_item" href="/seasons/<%= item[:id] %>"><small><%= item[:name] %></small></a>
-    <% end %>
-    <div class="dropdown-divider"></div>
+  	<li class="dropdown-submenu">
+		  <a class="dropdown-item" href='#' tabindex="-1">
+		  	<%= year %>
+		  </a>
+		  <ul class="dropdown-menu">
+		    <% data.each do |item| %>
+		      <li class="dropdown-item">
+		      	<a class="dropdown-item" href="/seasons/<%= item[:id] %>"><%= item[:name] %></a>
+		      </li>
+		    <% end %>
+		  </ul>
+		</li>
   <% end %>
-</div>
+</ul>

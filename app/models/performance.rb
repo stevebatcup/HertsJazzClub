@@ -4,7 +4,7 @@ class Performance < ApplicationRecord
 	belongs_to	:instrument
 
 	def playing
-		"#{self.musician.name} (#{self.instrument.name})"
+		"#{self.musician.full_name} (#{self.instrument.name})"
 	end
 
 end

@@ -1,0 +1,14 @@
+<table id="prices" class="table">
+	<tr>
+		<th>Tickets</th>
+	</tr>
+	<tr>
+		<td>£<%= Gig.prices(tier)[:standard] %> on the night/£<%= Gig.prices(tier)[:standard_advanced] %> advance</td>
+	</tr>
+	<tr>
+		<td>£<%= Gig.prices(tier)[:concessions] %> concessions & students/£<%= Gig.prices(tier)[:concessions_advanced] %> advance</td>
+	</tr>
+	<tr>
+		<td>£<%= Gig.prices(tier)[:members] %> members/£<%= Gig.prices(tier)[:members_advanced] %> advance</td>
+	</tr>
+</table>

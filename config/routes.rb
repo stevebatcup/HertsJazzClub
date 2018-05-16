@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   resources :gigs
+  resources :seasons
   resources :newsletter
 
   get 'current-season', to: 'seasons#show', as: :current_season

@@ -1,34 +1,119 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
+@import "_variables";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import "nav";
 
-.navbar-nav-svg {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  vertical-align: text-top;
+a, a:link, a:hover, a:visited, a:active {
+	color: $link;
 }
 
-.season_nav_item {
-	padding-top: 0;
-	padding-bottom: 0;
+h1, h2, h3, h4, h5, .btn {
+	font-family: 'Roboto Condensed', sans-serif;
 }
 
-.season_nav_header {
-	padding: 0.2rem 1.5rem;
-  font-size: 0.675rem;
+h2.main_heading {
+	margin-bottom: 20px;
 }
+
+.btn {
+	color: #fff !important;
+}
+
+.btn-success {
+	background-color: darken($link, 8%);
+	border-color: darken($link, 10%);
+}
+
+.btn-primary {
+	background-color: darken($blue, 10%);
+	border-color: darken($blue, 12%);
+}
+
+#newsletter_btn {
+	background-color: $blue;
+	border-color: darken($blue, 5%);
+}
+
+main {
+	margin-top: 30px;
+}
+
+.container#history {
+	img {
+		margin: 0;
+		width: 100%;
+	}
+
+	figcaption {
+		margin-bottom: 20px;
+		color: #ccc;
+
+		a {
+			text-decoration: underline;
+		}
+	}
+}
+
+.container#venue_info {
+	.row {
+		padding-bottom: 40px;
+	}
+}
+
+#home_carousel {
+	height: 450px;
+	overflow: hidden;
+
+	.carousel-inner {
+		height: 100%;
+
+		.carousel-item {
+			height: 100%;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.featurette-image {
+	width: 500px;
+	border-radius: 3px;
+}
+
+form#newsletter-form {
+	width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+#home {
+	.marketing {
+		h2.featurette-heading {
+			margin-bottom: 20px;
+		}
+
+		.item {
+			height: 450px;
+			position: relative;
+
+			img {
+				border-radius: 3px;
+			}
+
+			h3 {
+				font-size: 1.6em;
+				margin-top: 6px;
+			}
+
+			p.buttons {
+				position: absolute;
+				bottom: 0;
+			}
+		}
+	}
+}
+
+@import "gigs_seasons";

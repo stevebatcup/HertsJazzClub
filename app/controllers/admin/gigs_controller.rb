@@ -1,8 +1,13 @@
 module Admin
   class GigsController < Admin::ApplicationController
+
     def create
-      gig = Gig.new(act: gig_params[:act], season_id: gig_params[:season_id], date: gig_params[:date], description: gig_params[:description])
+      parameters = gig_params.clone
+      parameters.delete :performance_ids
+      parameters.delete :children
+      gig = Gig.new(parameters)
       create_performances(gig)
+      create_double_bills(gig)
       if gig.save
         redirect_to(
           [namespace, gig],
@@ -19,6 +24,7 @@ module Admin
       gig = Gig.find(params[:id])
       gig.performances.destroy_all
       create_performances(gig)
+      create_double_bills(gig)
       if gig.update(gig_params)
         redirect_to(
           [namespace, gig],
@@ -34,7 +40,10 @@ module Admin
 private
 
     def gig_params
-      params.require(:gig).permit!
+      gig_parameters = params.require(:gig).permit!
+      gig_parameters[:starts] = DateTime.parse(gig_parameters[:starts].to_s)
+      gig_parameters[:ends] = DateTime.parse(gig_parameters[:ends].to_s)
+      gig_parameters
     end
 
     def create_performances(gig)
@@ -45,6 +54,15 @@ private
         end
       end
       gig_params.delete :performance_ids
+    end
+
+    def create_double_bills(gig)
+      if gig_params[:children].to_i > 0
+        gig.build_child_billing({child_id: gig_params[:children].to_i})
+      else
+        gig.child_billing.destroy if gig.child_billing
+      end
+      gig_params.delete :children
     end
 
   end
