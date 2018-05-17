@@ -42,12 +42,14 @@ gem "mini_magick"
 
 # browser detection
 gem 'browser'
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem "capistrano", "~> 3.10", require: false
   gem "capistrano-rails", "~> 1.3", require: false
+  gem 'capistrano-rbenv', '~> 2.1'
 end
 
 group :development do
