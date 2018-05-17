@@ -97,8 +97,8 @@ form#season-form {
 		}
 
 		.item {
-			height: 450px;
-			position: relative;
+			// height: 450px;
+			// position: relative;
 
 			img {
 				border-radius: 3px;
@@ -110,10 +110,10 @@ form#season-form {
 				margin-top: 6px;
 			}
 
-			p.buttons {
-				position: absolute;
-				bottom: 0;
-			}
+			// p.buttons {
+			// 	position: absolute;
+			// 	bottom: 0;
+			// }
 		}
 	}
 }
