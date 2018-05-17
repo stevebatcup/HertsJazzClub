@@ -3,6 +3,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 @import "nav";
 
+.mobile_hide {
+	display: block;
+}
+
+.mobile_show {
+	display: none;
+}
+
 a, a:link, a:hover, a:visited, a:active {
 	color: $link;
 }

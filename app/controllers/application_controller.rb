@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :device_image_size
 
+  def is_tablet?
+    browser.device.tablet?
+  end
+  helper_method :is_tablet?
+
 private
   def set_device_type
     if browser.device.mobile?

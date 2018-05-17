@@ -1,3 +1,13 @@
+header {
+	a.nav-link {
+		width: 40px;
+
+		&#twitter{
+			color: #6999d0;
+		}
+	}
+}
+
 nav {
 	.navbar-nav-svg {
 	  display: inline-block;

@@ -1,4 +1,11 @@
 body.mobile {
+	.mobile_hide {
+		display: none;
+	}
+
+	.mobile_show {
+		display: block;
+	}
 
 	form#newsletter-form,
 	form#season-form {
@@ -34,6 +41,12 @@ body.mobile {
 	}
 
 	#home {
+		img.mobile_show {
+			display: block;
+			width: 100%;
+			margin-bottom: 15px;
+		}
+
 		.marketing {
 			.item {
 				height: initial !important;
@@ -76,6 +89,7 @@ body.mobile {
 	footer {
 		background: #ededed;
 		padding: 17px 15px 15px;
+		margin-top: 15px;
 
 		#info_col {
 			padding-right: 0;

@@ -1,7 +1,7 @@
 <div class="text-center" id="season_list">
 	<form id="season-form" action="/seasons" method="get">
 		<%= token_tag %>
-	  <h1 class="h3 mb-3 font-weight-normal">Choose a season</h1>
+	  <h1 class="h3 mb-3 font-weight-normal">Choose a season from the archive</h1>
 	  <label for="season" class="sr-only">Email address</label>
 	  <select name="season" id="season" class="form-control">
 	  	<% @seasons.each do |season| %>
