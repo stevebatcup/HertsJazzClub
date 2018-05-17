@@ -5,6 +5,8 @@ class CreateGigs < ActiveRecord::Migration[5.0]
       t.integer :season_id
       t.integer :act_id
       t.text :description
+      t.string :image
+      t.string :website
 
       t.timestamps
     end
