@@ -19,7 +19,7 @@ class GigDashboard < Administrate::BaseDashboard
     website: Field::StringWithHintField.with_options(
       hint: "seperate multiple websites with a comma<br />e.g. www.website1.com, www.website2.com"
     ),
-    pricing_tier: PricingTierField,
+    pricing_tier: Field::BelongsTo,
     booking_url: Field::String,
     gallery_url: Field::String,
     children: SelectField.with_options(

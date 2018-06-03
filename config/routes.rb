@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :musicians
     resources :instruments
     resources :venues
+    resources :pricing_tiers
 
     root to: "gigs#index"
   end

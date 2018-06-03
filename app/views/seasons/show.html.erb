@@ -5,6 +5,20 @@
 		<h2 class="main_heading"><%= @season.full_name %> season</h2>
 	<% end %>
 	<% if @season.gigs.any? %>
+
+		<div class="col-12 mobile_hide">
+			<ul style="padding: 0; font-size: 0.9em; margin-bottom: 30px;">
+				<% @season.gigs.each do |gig| %>
+					<% if gig.ends.strftime("%e") != gig.starts.strftime("%e") %>
+						<% starts = gig.starts.strftime("%B %e") %> - <br /><%= gig.ends.strftime("%B %e") %>
+					<% else %>
+						<% starts = gig.starts.strftime("%B %e") %>
+					<% end %>
+					<li><%= "#{gig.act}: #{starts}" %></li>
+				<% end %>
+			</ul>
+		</div>
+
 		<div class="row">
 			<% @season.gigs.each do |gig| %>
 				<% if gig.parents.nil? %>
@@ -37,6 +51,6 @@
 				<% end %>
 			<% end %>
 		</div>
-		<small>* Photos by Melody and Ian MacLaren and available here with their kind permission.</small>
+		<small>* Photos by Melody MacLaren and available here with their kind permission.</small>
 	<% end %>
 </div>

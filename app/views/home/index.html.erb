@@ -1,4 +1,31 @@
 <div class="container" id="home">
+  <div class="container marketing">
+    <!-- Three columns of text below the carousel -->
+    <h2 class="featurette-heading">Next <span class="text-muted">up at Herts Jazz</span>...</h2>
+    <div class="row">
+      <% link = @next_gig.is_festival? ? @next_gig.website : gig_path(@next_gig) %>
+      <div class="col-12 col-lg-6 col-md-6">
+        <%= link_to image_tag(@next_gig.image.url(:large)), link, target: @next_gig.is_festival? ? '_blank' : '_self' %>
+      </div>
+      <div class="col-12 col-lg-6 col-md-6 item">
+        <% if @next_gig.children %>
+          <h3><%= link_to "Double Bill", link, target: '_blank' %></h3>
+          <h4 class="double_bill"><%= link_to "#{@next_gig.act} & #{@next_gig.children.act}", link, target: '_blank' %></h4>
+        <% else %>
+          <h3><%= link_to @next_gig.act, link, target: @next_gig.is_festival? ? '_blank' : '_self' %></h3>
+        <% end %>
+        <%= simple_format @next_gig.description.truncate_words(50) %>
+        <p class="buttons">
+          <a class="btn btn-primary btn-block" href="<%= link %>" role="button">View details &raquo;</a>
+          <% if @next_gig.is_bookable? %>
+            <a href='<%= @next_gig.booking_url %>' class='btn btn-success btn-block' target="_blank">Book now</a>
+          <% end %>
+        </p>
+      </div><!-- /.col-lg-3 -->
+    </div><!-- /.row -->
+
+  <hr class="featurette-divider">
+
   <div class="row featurette">
     <div class="col-12 col-md-7">
       <h2 class="featurette-heading">Herts Jazz <span class="text-muted">since 1969</span></h2>
@@ -18,11 +45,16 @@
 
   <div class="container marketing">
     <!-- Three columns of text below the carousel -->
-  	<h2 class="featurette-heading">Upcoming <span class="text-muted">gigs</span></h2>
+    <h2 class="featurette-heading">Upcoming <span class="text-muted">gigs</span></h2>
     <div class="row">
       <% @upcoming_gigs.each do |gig| %>
         <% link = gig.is_festival? ? gig.website : gig_path(gig) %>
         <div class="col-12 col-lg-3 col-md-6 item">
+          <% if gig.ends.strftime("%e") != gig.starts.strftime("%e") %>
+            <%= gig.starts.strftime("%A %B %e") %> - <br /><%= gig.ends.strftime("%A %B %e, %Y") %>
+          <% else %>
+            <%= gig.starts.strftime("%A %B %e, %Y") %>
+          <% end %>
           <%= link_to image_tag(gig.image.url(device_image_size)), link, target: gig.is_festival? ? '_blank' : '_self' %>
           <% if gig.children %>
             <h3><%= link_to "Double Bill", link, target: '_blank' %></h3>

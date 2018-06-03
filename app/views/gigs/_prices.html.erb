@@ -3,12 +3,12 @@
 		<th>Tickets</th>
 	</tr>
 	<tr>
-		<td>£<%= Gig.prices(tier)[:standard] %> on the night/£<%= Gig.prices(tier)[:standard_advanced] %> advance</td>
+		<td><%= number_to_currency(tier.standard, unit: '£') %> on the night / <%= number_to_currency(tier.standard_advanced, unit: '£') %> advance</td>
 	</tr>
 	<tr>
-		<td>£<%= Gig.prices(tier)[:concessions] %> concessions & students/£<%= Gig.prices(tier)[:concessions_advanced] %> advance</td>
+		<td><%= number_to_currency(tier.concessions, unit: '£') %> concessions & students / <%= number_to_currency(tier.concessions_advanced, unit: '£') %> advance</td>
 	</tr>
 	<tr>
-		<td>£<%= Gig.prices(tier)[:members] %> members/£<%= Gig.prices(tier)[:members_advanced] %> advance</td>
+		<td><%= number_to_currency(tier.members, unit: '£') %> members / <%= number_to_currency(tier.members_advanced, unit: '£') %> advance</td>
 	</tr>
 </table>

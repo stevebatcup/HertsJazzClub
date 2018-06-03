@@ -28,9 +28,9 @@
 			</ul>
 			<% if @gig.gallery_url.present? %>
 				<a href='<%= @gig.gallery_url %>' class='btn btn-success btn-block' target="_blank">See photos from this show *</a>
-				<small>* Photos by Melody and Ian MacLaren, available here with their kind permission.</small>
+				<small>* Photos by Melody MacLaren, available here with their kind permission.</small>
 			<% elsif @gig.is_bookable? %>
-				<%= render partial: 'prices', locals: { tier: @gig.pricing_tier.to_s } %>
+				<%= render partial: 'prices', locals: { tier: @gig.pricing_tier } %>
 				<a href='<%= @gig.booking_url %>' class='btn btn-success btn-block' target="_blank">Book now</a>
 			<% end %>
 		</div>
