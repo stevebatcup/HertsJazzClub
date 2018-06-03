@@ -5,7 +5,7 @@
     <div class="row">
       <% link = @next_gig.is_festival? ? @next_gig.website : gig_path(@next_gig) %>
       <div class="col-12 col-lg-6 col-md-6">
-        <%= link_to image_tag(@next_gig.image.url(:large)), link, target: @next_gig.is_festival? ? '_blank' : '_self' %>
+        <%= link_to image_tag(@next_gig.image.url(:large), width: '100%'), link, target: @next_gig.is_festival? ? '_blank' : '_self' %>
       </div>
       <div class="col-12 col-lg-6 col-md-6 item">
         <% if @next_gig.children %>
@@ -14,13 +14,17 @@
         <% else %>
           <h3><%= link_to @next_gig.act, link, target: @next_gig.is_festival? ? '_blank' : '_self' %></h3>
         <% end %>
-        <%= simple_format @next_gig.description.truncate_words(50) %>
-        <p class="buttons">
-          <a class="btn btn-primary btn-block" href="<%= link %>" role="button">View details &raquo;</a>
+        <%= simple_format @next_gig.description.truncate_words(80) %>
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <a class="btn btn-primary btn-block" href="<%= link %>" role="button">View details &raquo;</a>
+          </div>
+          <div class="col-12 col-sm-6">
           <% if @next_gig.is_bookable? %>
-            <a href='<%= @next_gig.booking_url %>' class='btn btn-success btn-block' target="_blank">Book now</a>
+              <a href='<%= @next_gig.booking_url %>' class='btn btn-success btn-block' target="_blank">Book now</a>
           <% end %>
-        </p>
+          </div>
+        </div>
       </div><!-- /.col-lg-3 -->
     </div><!-- /.row -->
 
