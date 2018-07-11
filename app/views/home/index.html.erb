@@ -1,32 +1,34 @@
 <div class="container" id="home">
   <div class="container marketing">
+    <% if @next_gig %>
     <!-- Three columns of text below the carousel -->
     <h2 class="featurette-heading">Next <span class="text-muted">up at Herts Jazz</span>...</h2>
-    <div class="row">
-      <% link = @next_gig.is_festival? ? @next_gig.website : gig_path(@next_gig) %>
-      <div class="col-12 col-lg-6 col-md-6">
-        <%= link_to image_tag(@next_gig.image.url(:large), width: '100%'), link, target: @next_gig.is_festival? ? '_blank' : '_self' %>
-      </div>
-      <div class="col-12 col-lg-6 col-md-6 item">
-        <% if @next_gig.children %>
-          <h3><%= link_to "Double Bill", link, target: '_blank' %></h3>
-          <h4 class="double_bill"><%= link_to "#{@next_gig.act} & #{@next_gig.children.act}", link, target: '_blank' %></h4>
-        <% else %>
-          <h3><%= link_to @next_gig.act, link, target: @next_gig.is_festival? ? '_blank' : '_self' %></h3>
-        <% end %>
-        <%= simple_format @next_gig.description.truncate_words(80) %>
-        <div class="row">
-          <div class="col-12 col-sm-6">
-            <a class="btn btn-primary btn-block" href="<%= link %>" role="button">View details &raquo;</a>
-          </div>
-          <div class="col-12 col-sm-6">
-          <% if @next_gig.is_bookable? %>
-              <a href='<%= @next_gig.booking_url %>' class='btn btn-success btn-block' target="_blank">Book now</a>
-          <% end %>
-          </div>
+      <div class="row">
+        <% link = @next_gig.is_festival? ? @next_gig.website : gig_path(@next_gig) %>
+        <div class="col-12 col-lg-6 col-md-6">
+          <%= link_to image_tag(@next_gig.image.url(:large), width: '100%'), link, target: @next_gig.is_festival? ? '_blank' : '_self' %>
         </div>
-      </div><!-- /.col-lg-3 -->
-    </div><!-- /.row -->
+        <div class="col-12 col-lg-6 col-md-6 item">
+          <% if @next_gig.children %>
+            <h3><%= link_to "Double Bill", link, target: '_blank' %></h3>
+            <h4 class="double_bill"><%= link_to "#{@next_gig.act} & #{@next_gig.children.act}", link, target: '_blank' %></h4>
+          <% else %>
+            <h3><%= link_to @next_gig.act, link, target: @next_gig.is_festival? ? '_blank' : '_self' %></h3>
+          <% end %>
+          <%= simple_format @next_gig.description.truncate_words(80) %>
+          <div class="row">
+            <div class="col-12 col-sm-6">
+              <a class="btn btn-primary btn-block" href="<%= link %>" role="button">View details &raquo;</a>
+            </div>
+            <div class="col-12 col-sm-6">
+            <% if @next_gig.is_bookable? %>
+                <a href='<%= @next_gig.booking_url %>' class='btn btn-success btn-block' target="_blank">Book now</a>
+            <% end %>
+            </div>
+          </div>
+        </div><!-- /.col-lg-3 -->
+      </div><!-- /.row -->
+    <% end %>
 
   <hr class="featurette-divider">
 
@@ -48,6 +50,7 @@
   <hr class="featurette-divider">
 
   <div class="container marketing">
+    <% if @upcoming_gigs.any? %>
     <!-- Three columns of text below the carousel -->
     <h2 class="featurette-heading">Upcoming <span class="text-muted">gigs</span></h2>
     <div class="row">
@@ -75,5 +78,6 @@
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       </div>
     </div><!-- /.row -->
+    <% end %>
 
 </div><!-- /.container -->
