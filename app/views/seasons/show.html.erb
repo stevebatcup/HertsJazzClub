@@ -6,21 +6,6 @@
 	<% end %>
 	<% if @season.gigs.any? %>
 
-	<% if @is_current %>
-		<div class="col-12 mobile_hide">
-			<ul style="padding: 0; font-size: 0.9em; margin-bottom: 30px;">
-				<% @season.gigs.each do |gig| %>
-					<% if gig.ends.strftime("%e") != gig.starts.strftime("%e") %>
-						<% starts = gig.starts.strftime("%B %e") %> - <%= gig.ends.strftime("%B %e") %>
-					<% else %>
-						<% starts = gig.starts.strftime("%B %e") %>
-					<% end %>
-					<li><%= "#{gig.act}: #{starts}" %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-
 		<div class="row">
 			<% @season.gigs.each do |gig| %>
 				<% if gig.parents.nil? %>
