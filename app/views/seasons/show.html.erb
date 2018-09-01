@@ -12,13 +12,15 @@
 					<% link = gig.is_festival? ? gig.website : gig_path(gig) %>
 					<div class="col-12 col-lg-3 col-md-4 gig">
 						<h5>
-							<% if gig.ends.strftime("%e") != gig.starts.strftime("%e") %>
+							<% if gig.ends && (gig.ends.strftime("%e") != gig.starts.strftime("%e")) %>
 								<%= gig.starts.strftime("%A %B %e") %> - <br /><%= gig.ends.strftime("%A %B %e, %Y") %>
 							<% else %>
 								<%= gig.starts.strftime("%A %B %e, %Y") %>
 							<% end %>
 						</h5>
-						<%= link_to image_tag(gig.image.url(:small)), link, target: gig.is_festival? ? '_blank' : '_self' %>
+						<% if gig.image? %>
+							<%= link_to image_tag(gig.image.url(:small)), link, target: gig.is_festival? ? '_blank' : '_self' %>
+						<% end %>
 						<% if gig.children %>
 							<h2><%= link_to "Double Bill", link, target: '_blank' %></h2>
 							<h3 class="double_bill"><%= link_to "#{gig.act} & #{gig.children.act}", link, target: '_blank' %></h3>

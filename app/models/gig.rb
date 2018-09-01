@@ -33,6 +33,6 @@ class Gig < ApplicationRecord
 	end
 
 	def has_passed?
-		self.ends < Date.today
+		self.starts < Time.now
 	end
 end

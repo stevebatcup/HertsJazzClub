@@ -2,7 +2,9 @@
 	<h2><%= @gig.act %></h2>
 	<div class="row">
 		<div class="col-md-7 col-sm-12" id="photo_and_desc">
-			<%= image_tag(@gig.image.url(:large)) %>
+			<% if @gig.image? %>
+				<%= image_tag(@gig.image.url(:large)) %>
+			<% end %>
 			<%= simple_format @gig.description %>
 			<h5>
 				<% @gig.website.split(",").each do |website| %>
