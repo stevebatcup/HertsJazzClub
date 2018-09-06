@@ -24,7 +24,6 @@ class PageContentDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :page,
-    :heading,
     :intro,
   ].freeze
 
