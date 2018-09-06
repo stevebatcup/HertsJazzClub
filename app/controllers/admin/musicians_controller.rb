@@ -1,5 +1,12 @@
 module Admin
   class MusiciansController < Admin::ApplicationController
+    before_action :default_params
+
+    def default_params
+      params[:order] ||= "last_name"
+      params[:direction] ||= "asc"
+    end
+
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #

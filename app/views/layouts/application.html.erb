@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HertsJazz</title>
+    <title>
+      <%= if content_for?(:page_title) then yield(:page_title) + ' | ' end %>
+      Herts Jazz Club
+    </title>
+    <meta name='description'
+          content="<%= yield_meta_tag(:description, "Herts Jazz Club at The Maltings, St Albans, formed in 1969, run by Clark Tracey, presenting the best in British contemporary jazz every Tuesday.") %>" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
 
@@ -49,7 +54,7 @@
         <nav class="nav d-flex justify-content-between">
           <a class="p-2 text-muted" href="<%= root_path %>">Home</a>
           <a class="p-2 text-muted" href="<%= current_season_path %>">Current season</a>
-          <a class="p-2 text-muted" href="<%= current_venue_path %>">The Maltings</a>
+          <a class="p-2 text-muted" href="<%= current_venue_path %>">About</a>
           <a class="p-2 text-muted" href="<%= club_history_path %>">Club history</a>
           <% if is_tablet? %>
             <a class="p-2 text-muted" href="<%= seasons_path %>">Season archive</a>

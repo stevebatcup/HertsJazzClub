@@ -1,11 +1,16 @@
 <!doctype html>
 <html class="no-js">
 	<head>
+    <title>
+      <%= if content_for?(:page_title) then yield(:page_title) + ' | ' end %>
+      Herts Jazz Club
+    </title>
+    <meta name='description'
+          content="<%= yield_meta_tag(:description, "Herts Jazz Club at The Maltings, St Albans, formed in 1969, run by Clark Tracey, presenting the best in British contemporary jazz every Tuesday.") %>" />
 	  <meta charset="utf-8">
 	  <meta name="description" content="">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-	  <title>HertsJazz</title>
 	  <%= csrf_meta_tags %>
 
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -46,7 +51,7 @@
 			    	</div>
 				    <div class="bd-toc-item">
 				      <a class="bd-toc-link" href="<%= current_venue_path %>">
-				        > The Maltings
+				        > About
 				      </a>
 				    </div>
 				    <div class="bd-toc-item">

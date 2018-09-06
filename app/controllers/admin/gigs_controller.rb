@@ -1,5 +1,11 @@
 module Admin
   class GigsController < Admin::ApplicationController
+    before_action :default_params
+
+    def default_params
+      params[:order] ||= "created_at"
+      params[:direction] ||= "desc"
+    end
 
     def create
       parameters = gig_params.clone

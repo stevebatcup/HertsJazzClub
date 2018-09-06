@@ -1,3 +1,6 @@
+<% page_title "#{@gig.act}" %>
+<% meta_tag :description, @gig.description.truncate(160).html_safe %>
+
 <div class="container" id="gig">
 	<h2><%= @gig.act %></h2>
 	<div class="row">
