@@ -30,20 +30,17 @@
       </div><!-- /.row -->
     <% end %>
 
-  <hr class="featurette-divider">
+  <hr class="featurette-divider mobile_hide">
 
   <div class="row featurette">
     <div class="col-12 col-md-7">
-      <h2 class="featurette-heading">Herts Jazz <span class="text-muted">since 1969</span></h2>
-			<p class="lead my-3">Hi. Welcome to Herts Jazz's website. We've been presenting jazz since 1969 and continue to maintain only the highest standard of performers each week, both national and international.</p>
-      <%= image_tag "clark-home.jpg", class: "mobile_show", alt: "Clark Tracey - Herts Jazz" %>
-      <p>From 3 April we will be presenting our gigs on TUESDAYS at The Maltings Arts Theatre in St Albans - a brilliant venue with capacity for 140.</p>
-			<p>See our <a href="/club-history">history</a> page for the club's background or go straight to our <a href="/current-season">current list of gigs for this season</a>. </p>
-			<p>The Herts Jazz Team wishes you a warm welcome and hopes that you can pay us a visit soon...</p>
-			<p>Cheers, Clark</p>
+      <h2 class="featurette-heading"><%= @content.heading.html_safe %></h2>
+			<p class="lead my-3"><%= @content.intro.html_safe %></p>
+      <%= image_tag(@content.image.url(:large), class: "mobile_show", alt: "Herts Jazz") if @content.image.present? %>
+      <%= simple_format @content.body.html_safe %>
     </div>
     <div class="col-12 col-md-5 mobile_hide">
-      <%= image_tag "clark-home.jpg", class: "featurette-image img-fluid mx-auto", alt: "Clark Tracey - Herts Jazz" %>
+      <%= image_tag(@content.image.url(:large), class: "featurette-image img-fluid mx-auto", alt: "Herts Jazz") if @content.image.present? %>
     </div>
   </div>
 

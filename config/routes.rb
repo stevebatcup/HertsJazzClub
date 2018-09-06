@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :instruments
     resources :venues
     resources :pricing_tiers
+    resources :page_contents
 
     root to: "gigs#index"
   end

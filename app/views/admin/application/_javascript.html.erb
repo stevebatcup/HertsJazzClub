@@ -7,6 +7,9 @@ but each page can define additional JS sources
 by providing a `content_for(:javascript)` block.
 %>
 
+<% Administrate::Engine.add_javascript :'froala_editor.min' %>
+<% Administrate::Engine.add_javascript :'plugins/link.min' %>
+
 <% Administrate::Engine.javascripts.each do |js_path| %>
   <%= javascript_include_tag js_path %>
 <% end %>
@@ -15,6 +18,7 @@ by providing a `content_for(:javascript)` block.
 
 <%= javascript_tag do %>
   $(".field-unit--performance-field select").selectize({});
+
   var today = new Date();
   var todayString = today.toISOString().slice(0,10);
   $('#gig_starts').datetimepicker({
@@ -25,6 +29,8 @@ by providing a `content_for(:javascript)` block.
     format: 'dddd MMM D, YYYY HH:mm',
     defaultDate: todayString + ' 22:00'
   });
+
+  $(".field-unit__field.froala textarea").froalaEditor({height: 300});
 <% end %>
 
 <% if Rails.env.test? %>
