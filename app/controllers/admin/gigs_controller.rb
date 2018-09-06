@@ -48,7 +48,7 @@ private
     def gig_params
       gig_parameters = params.require(:gig).permit!
       gig_parameters[:starts] = DateTime.parse(gig_parameters[:starts].to_s)
-      gig_parameters[:ends] = DateTime.parse(gig_parameters[:ends].to_s) if gig_parameters[:ends].length > 0
+      gig_parameters[:ends] = DateTime.parse(gig_parameters[:ends].to_s) if gig_parameters[:ends].to_s.length > 0
       gig_parameters
     end
 
