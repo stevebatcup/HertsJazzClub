@@ -12,6 +12,7 @@ class SeasonDashboard < Administrate::BaseDashboard
     year: Field::String,
     name: Field::String,
     venue: Field::BelongsTo,
+    photo_credits: Field::String,
     is_current: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -46,6 +47,7 @@ class SeasonDashboard < Administrate::BaseDashboard
     :name,
     :year,
     :venue,
+    :photo_credits,
     :is_current,
   ].freeze
 

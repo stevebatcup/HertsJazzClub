@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180906064640) do
+ActiveRecord::Schema.define(version: 20180906183132) do
 
   create_table "double_bills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "parent_id"
@@ -85,9 +85,10 @@ ActiveRecord::Schema.define(version: 20180906064640) do
     t.string   "year"
     t.string   "name"
     t.integer  "venue_id"
-    t.boolean  "is_current", default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "is_current",    default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "photo_credits"
   end
 
   create_table "venues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -112,10 +112,14 @@
     <footer class="my-5 pt-5 text-muted text-center text-small">
       <p class="mb-1">&copy; <%= Date.today.strftime("%Y") %> Herts Jazz</p>
       <ul class="list-inline">
+        <li class="list-inline-item"><a href="/">Home</a></li>
         <li class="list-inline-item"><a href="/current-season">Current season</a></li>
+        <li class="list-inline-item"><a href="<%= current_season_path %>">About</a></li>
         <li class="list-inline-item"><a href="/club-history">Club history</a></li>
         <li class="list-inline-item"><a href="/newsletter/new">Newsletter</a></li>
-      </ul>
+        <li class="list-inline-item"><a href="<%= seasons_path %>">Season archive</a></li>
+        <li class="list-inline-item"><a href="<%= herts_venues_path %>">Other venues</a></li>
+     </ul>
     </footer>
 
     <% if Rails.env == 'production' %>
