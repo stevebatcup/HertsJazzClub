@@ -20,6 +20,6 @@ By default, the input is a text field that is augmented with [DateTimePicker].
   <%= f.label field.attribute %>
 </div>
 <div class="field-unit__field">
-	<% date = field.data.present? ? field.data.strftime("%A %b %d, %Y") : '' %>
+	<% date = field.data.present? ? field.data.strftime("%A %b %d, %Y %H:%M") : '' %>
   <%= f.text_field field.attribute, value: date, data: { type: 'date' }  %>
 </div>
