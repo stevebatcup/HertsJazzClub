@@ -29,7 +29,7 @@ class Gig < ApplicationRecord
 	end
 
 	def self.upcoming(amount=3, after='CURDATE()')
-		self.where("starts > #{after}").order("starts").limit(amount)
+		self.where("starts > '#{after}'").order("starts").limit(amount)
 	end
 
 	def has_passed?

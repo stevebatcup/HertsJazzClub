@@ -6,7 +6,9 @@
       <div class="row">
         <% link = @next_gig.is_festival? ? @next_gig.website : gig_path(@next_gig) %>
         <div class="col-12 col-lg-6 col-md-6">
-          <%= link_to image_tag(@next_gig.image.url(:large), width: '100%'), link, target: @next_gig.is_festival? ? '_blank' : '_self' %>
+          <% if @next_gig.image? %>
+            <%= link_to image_tag(@next_gig.image.url(:large), width: '100%'), link, target: @next_gig.is_festival? ? '_blank' : '_self' %>
+          <% end %>
         </div>
         <div class="col-12 col-lg-6 col-md-6 item">
           <% if @next_gig.children %>
@@ -59,7 +61,9 @@
           <% else %>
             <%= gig.starts.strftime("%A %B %e, %Y") %>
           <% end %>
-          <%= link_to image_tag(gig.image.url(device_image_size)), link, target: gig.is_festival? ? '_blank' : '_self' %>
+          <% if gig.image? %>
+            <%= link_to image_tag(gig.image.url(device_image_size)), link, target: gig.is_festival? ? '_blank' : '_self' %>
+          <% end %>
           <% if gig.children %>
             <h3><%= link_to "Double Bill", link, target: '_blank' %></h3>
             <h4 class="double_bill"><%= link_to "#{gig.act} & #{gig.children.act}", link, target: '_blank' %></h4>
