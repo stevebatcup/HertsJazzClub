@@ -54,7 +54,7 @@
       <% @upcoming_gigs.each do |gig| %>
         <% link = gig.is_festival? ? gig.website : gig_path(gig) %>
         <div class="col-12 col-lg-3 col-md-6 item">
-          <% if gig.ends.strftime("%e") != gig.starts.strftime("%e") %>
+          <% if gig.ends && gig.ends.strftime("%e") != gig.starts.strftime("%e") %>
             <%= gig.starts.strftime("%A %B %e") %> - <br /><%= gig.ends.strftime("%A %B %e, %Y") %>
           <% else %>
             <%= gig.starts.strftime("%A %B %e, %Y") %>
