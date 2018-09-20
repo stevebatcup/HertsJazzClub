@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180906183132) do
+ActiveRecord::Schema.define(version: 20180920061338) do
 
   create_table "double_bills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "parent_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180906183132) do
     t.datetime "ends"
     t.integer  "parent_id"
     t.integer  "pricing_tier_id",               default: 1
+    t.string   "video_url"
   end
 
   create_table "instruments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

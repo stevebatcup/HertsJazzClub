@@ -14,6 +14,10 @@
 					<%= link_to website.strip, "http://#{website.strip}", target: :blank %><br />
 				<% end %>
 			</h5>
+
+			<% if @gig.video_url? %>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @gig.video_url %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<% end %>
 			<a id="back_to_season" href="<%= season_path(@gig.season) %>">< Back to season page</a>
 		</div>
 

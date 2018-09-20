@@ -16,8 +16,11 @@ class GigDashboard < Administrate::BaseDashboard
     performances: PerformanceField,
     description: Field::Text,
     image: ImageField,
-    website: Field::StringWithHintField.with_options(
+    website: StringWithHintField.with_options(
       hint: "seperate multiple websites with a comma<br />e.g. www.website1.com, www.website2.com"
+    ),
+    video_url: StringWithHintField.with_options(
+      hint: "<a href='https://docs.joeworkman.net/rapidweaver/stacks/youtube/video-id' target='_blank'>Where do I find the video ID on YouTube?</a> ".html_safe
     ),
     pricing_tier: Field::BelongsTo,
     booking_url: Field::String,
@@ -70,6 +73,7 @@ class GigDashboard < Administrate::BaseDashboard
     :season,
     :description,
     :image,
+    :video_url,
     :website,
     :pricing_tier,
     :booking_url,
