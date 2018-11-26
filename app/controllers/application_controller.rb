@@ -3,7 +3,13 @@ class ApplicationController < ActionController::Base
 	before_action :set_device_type
 
   def season_list
-  	@season_list ||= Season.where(is_current: false).all.group_by(&:year)
+  	@season_list ||= begin
+      current_season = Season.where(is_current: true).first
+      Season.where(is_current: false)
+            .where("(year < #{current_season.year}) OR (year = #{current_season.year} AND id < #{current_season.id})")
+            .all.group_by(&:year)
+    end
+
   end
   helper_method :season_list
 
