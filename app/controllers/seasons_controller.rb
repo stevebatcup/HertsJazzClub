@@ -3,7 +3,7 @@ class SeasonsController < ApplicationController
 		if params[:season]
 			redirect_to season_path(params[:season])
 		else
-			@seasons = Season.where(is_current: false)
+			@seasons = Season.archive_list
 		end
 	end
 
