@@ -14,6 +14,7 @@ class SeasonDashboard < Administrate::BaseDashboard
     venue: Field::BelongsTo,
     photo_credits: Field::String,
     is_current: Field::Boolean,
+    is_next: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,6 +27,8 @@ class SeasonDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :name,
     :year,
+    :is_current,
+    :is_next,
     :venue
   ].freeze
 
@@ -36,7 +39,7 @@ class SeasonDashboard < Administrate::BaseDashboard
     :year,
     :venue,
     :is_current,
-    :created_at,
+    :is_next,
     :updated_at,
   ].freeze
 
@@ -49,6 +52,7 @@ class SeasonDashboard < Administrate::BaseDashboard
     :venue,
     :photo_credits,
     :is_current,
+    :is_next
   ].freeze
 
   # Overwrite this method to customize how seasons are displayed

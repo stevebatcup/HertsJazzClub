@@ -4,11 +4,13 @@
 <div class="container" id="seasons">
 	<% if @is_current %>
 		<h2 class="main_heading">Current season</h2>
+	<% elsif @is_next %>
+		<h2 class="main_heading">Next season (<%= @season.full_name %>)</h2>
 	<% else %>
 		<h2 class="main_heading"><%= @season.full_name %> season</h2>
 	<% end %>
-	<% if @season.gigs.any? %>
 
+	<% if @season.gigs.any? %>
 		<div class="row">
 			<% @season.gigs.each do |gig| %>
 				<% if gig.parents.nil? %>

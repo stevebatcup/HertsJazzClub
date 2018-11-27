@@ -54,11 +54,13 @@
         <nav class="nav d-flex justify-content-between">
           <a class="p-2 text-muted" href="<%= root_path %>">Home</a>
           <a class="p-2 text-muted" href="<%= current_season_path %>">Current season</a>
+          <a class="p-2 text-muted" href="<%= next_season_path %>">Next season</a>
           <a class="p-2 text-muted" href="<%= current_venue_path %>">About</a>
-          <a class="p-2 text-muted" href="<%= club_history_path %>">Club history</a>
           <% if is_tablet? %>
+            <a class="p-2 text-muted" href="<%= club_history_path %>">History</a>
             <a class="p-2 text-muted" href="<%= seasons_path %>">Season archive</a>
           <% else %>
+            <a class="p-2 text-muted" href="<%= club_history_path %>">Club history</a>
             <div class="dropdown">
               <a href='#' class="p-2 text-muted" id="dropdown_archive" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Season archive <span class="caret"></span></a>
               <%= render partial: "layouts/season_list", locals: { list: season_list } %>

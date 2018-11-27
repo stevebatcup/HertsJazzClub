@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :newsletter
 
   get 'current-season', to: 'seasons#show', as: :current_season
+  get 'next-season', to: 'seasons#show', as: :next_season
   get 'current-venue', to: 'venues#show', as: :current_venue
   get 'club-history', to: 'history#show', as: :club_history
   get 'hertforshire-venues', to: 'herts_venues#index', as: :herts_venues

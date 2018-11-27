@@ -22,6 +22,9 @@
 en:
   helpers:
     label:
+      season:
+        is_current: Current season?
+        is_next: Upcoming season?
       gig:
         performances: Performers
         children: Double billed with

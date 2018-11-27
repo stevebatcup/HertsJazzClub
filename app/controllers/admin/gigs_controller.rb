@@ -3,7 +3,7 @@ module Admin
     before_action :default_params
 
     def default_params
-      params[:order] ||= "created_at"
+      params[:order] ||= "starts"
       params[:direction] ||= "desc"
     end
 
