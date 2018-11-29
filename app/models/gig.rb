@@ -10,7 +10,7 @@ class Gig < ApplicationRecord
 	has_one :parent_billing, :foreign_key => :child_id, class_name: DoubleBill, :dependent => :destroy
   has_one :parents, :through => :parent_billing, :source => :parent, :dependent => :destroy
 
-	default_scope	{ order(starts: :desc) }
+	default_scope	{ order(starts: :asc) }
 
 	mount_uploader :image, ImageUploader
 
