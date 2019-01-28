@@ -1,0 +1,7 @@
+<div style="padding: 20px">
+	<h1 style="margin-bottom: 30px; font-size: 1.3em;">All newsletter subscribers</h1>
+
+	<p>
+		<%= @subscribers.map(&:email).join(", ") %>
+	</p>
+</div>

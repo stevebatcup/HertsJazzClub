@@ -7,10 +7,12 @@ Rails.application.routes.draw do
     resources :venues
     resources :pricing_tiers
     resources :page_contents
+    resources :newsletter_subscribers
 
     root to: "gigs#index"
   end
 
+  get 'newsletter_subscribers_dump', to: 'newsletter_subscriber_dump#index'
   root 'home#index'
   resources :gigs
   resources :seasons
