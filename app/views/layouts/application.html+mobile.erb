@@ -52,11 +52,13 @@
 			        	> Current season
 			      	</a>
 			    	</div>
+			    	<% unless Season.where(is_next: true).first.nil? %>
     				<div class="bd-toc-item">
 			      	<a class="bd-toc-link" href="<%= next_season_path %>">
 			        	> Next season
 			      	</a>
 			    	</div>
+			    	<% end %>
 				    <div class="bd-toc-item">
 				      <a class="bd-toc-link" href="<%= current_venue_path %>">
 				        > About

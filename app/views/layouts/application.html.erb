@@ -57,7 +57,9 @@
         <nav class="nav d-flex justify-content-between">
           <a class="p-2 text-muted" href="<%= root_path %>">Home</a>
           <a class="p-2 text-muted" href="<%= current_season_path %>">Current season</a>
-          <a class="p-2 text-muted" href="<%= next_season_path %>">Next season</a>
+          <% unless Season.where(is_next: true).first.nil? %>
+            <a class="p-2 text-muted" href="<%= next_season_path %>">Next season</a>
+          <% end %>
           <a class="p-2 text-muted" href="<%= current_venue_path %>">About</a>
           <% if is_tablet? %>
             <a class="p-2 text-muted" href="<%= club_history_path %>">History</a>
