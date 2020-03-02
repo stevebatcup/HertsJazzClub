@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190128104809) do
+ActiveRecord::Schema.define(version: 20200302125934) do
 
   create_table "double_bills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "parent_id"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 20190128104809) do
     t.decimal "concessions_advanced", precision: 8, scale: 2
     t.decimal "members",              precision: 8, scale: 2
     t.decimal "members_advanced",     precision: 8, scale: 2
+    t.decimal "students",             precision: 8, scale: 2
+    t.decimal "students_advanced",    precision: 8, scale: 2
   end
 
   create_table "seasons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

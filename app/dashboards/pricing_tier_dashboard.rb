@@ -27,6 +27,12 @@ class PricingTierDashboard < Administrate::BaseDashboard
     ),
     members_advanced: Field::Number.with_options(
       decimals: 2
+    ),
+    students: Field::Number.with_options(
+      decimals: 2
+    ),
+    students_advanced: Field::Number.with_options(
+      decimals: 2
     )
   }.freeze
 
@@ -53,6 +59,8 @@ class PricingTierDashboard < Administrate::BaseDashboard
     :concessions_advanced,
     :members,
     :members_advanced,
+    :students,
+    :students_advanced,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -66,6 +74,8 @@ class PricingTierDashboard < Administrate::BaseDashboard
     :concessions_advanced,
     :members,
     :members_advanced,
+    :students,
+    :students_advanced,
   ].freeze
 
   # Overwrite this method to customize how pricing tiers are displayed

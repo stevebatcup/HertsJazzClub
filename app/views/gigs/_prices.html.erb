@@ -6,9 +6,14 @@
 		<td><%= number_to_currency(tier.standard, unit: '£') %> on the night / <%= number_to_currency(tier.standard_advanced, unit: '£') %> advance</td>
 	</tr>
 	<tr>
-		<td><%= number_to_currency(tier.concessions, unit: '£') %> concessions & students / <%= number_to_currency(tier.concessions_advanced, unit: '£') %> advance</td>
-	</tr>
-	<tr>
 		<td><%= number_to_currency(tier.members, unit: '£') %> members / <%= number_to_currency(tier.members_advanced, unit: '£') %> advance</td>
 	</tr>
+	<tr>
+		<td><%= number_to_currency(tier.concessions, unit: '£') %> concessions / <%= number_to_currency(tier.concessions_advanced, unit: '£') %> advance</td>
+	</tr>
+	<% unless tier.students.nil? %>
+	<tr>
+		<td><%= number_to_currency(tier.students, unit: '£') %> students / <%= number_to_currency(tier.students_advanced, unit: '£') %> advance</td>
+	</tr>
+	<% end %>
 </table>
