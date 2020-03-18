@@ -46,12 +46,14 @@
 			        	> Home
 			      	</a>
     				</div>
+    				<% if Season.current_season %>
     				<div class="bd-toc-item">
 			      	<a class="bd-toc-link" href="<%= current_season_path %>">
 			        	> Current season
 			      	</a>
 			    	</div>
-			    	<% unless Season.where(is_next: true).first.nil? %>
+			    	<% end %>
+			    	<% if Season.next_season %>
     				<div class="bd-toc-item">
 			      	<a class="bd-toc-link" href="<%= next_season_path %>">
 			        	> Next season

@@ -13,4 +13,12 @@ class Season < ApplicationRecord
 		Season.where(is_current: false)
 					.where(is_next: false)
 	end
+
+	def self.next_season
+		find_by(is_next: true)
+	end
+
+	def self.current_season
+		find_by(is_current: true)
+	end
 end

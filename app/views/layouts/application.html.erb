@@ -61,8 +61,10 @@
       <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
           <a class="p-2 text-muted" href="<%= root_path %>">Home</a>
-          <a class="p-2 text-muted" href="<%= current_season_path %>">Current season</a>
-          <% unless Season.where(is_next: true).first.nil? %>
+          <% if Season.current_season %>
+            <a class="p-2 text-muted" href="<%= current_season_path %>">Current season</a>
+          <% end %>
+          <% if Season.next_season %>
             <a class="p-2 text-muted" href="<%= next_season_path %>">Next season</a>
           <% end %>
           <a class="p-2 text-muted" href="<%= current_venue_path %>">About</a>
@@ -95,7 +97,9 @@
             <div class="carousel-caption text-right">
               <h1>Herts Jazz</h1>
               <p>Hi. Welcome to Herts Jazz's website.<br />We've been presenting jazz since 1969 and continue<br /> to maintain only the highest standard of performers each week, <br />both national and international.</p>
-              <p><a class="btn btn-lg btn-primary" href="/current-season" role="button">Take a look at the current season</a></p>
+              <% if Season.current_season %>
+                <p><a class="btn btn-lg btn-primary" href="/current-season" role="button">Take a look at the current season</a></p>
+              <% end %>
             </div>
           </div>
         </div>
@@ -125,7 +129,9 @@
       <p class="mb-1">&copy; <%= Date.today.strftime("%Y") %> Herts Jazz</p>
       <ul class="list-inline">
         <li class="list-inline-item"><a href="/">Home</a></li>
-        <li class="list-inline-item"><a href="/current-season">Current season</a></li>
+        <% if Season.current_season %>
+          <li class="list-inline-item"><a href="/current-season">Current season</a></li>
+        <% end %>
         <li class="list-inline-item"><a href="<%= current_season_path %>">About</a></li>
         <li class="list-inline-item"><a href="/club-history">Club history</a></li>
         <li class="list-inline-item"><a href="/newsletter/new">Newsletter</a></li>

@@ -49,7 +49,7 @@
   <hr class="featurette-divider">
 
   <div class="container marketing">
-    <% if @upcoming_gigs.any? %>
+    <% if defined?(@upcoming_gigs) && @upcoming_gigs.any? %>
     <!-- Three columns of text below the carousel -->
     <h2 class="featurette-heading">Upcoming <span class="text-muted">gigs</span></h2>
     <div class="row">
