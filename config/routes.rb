@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :page_contents
     resources :newsletter_subscribers
 
-    root to: "gigs#index"
+    root to: 'gigs#index'
   end
 
   get 'newsletter_subscribers_dump', to: 'newsletter_subscriber_dump#index'
@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   get 'current-venue', to: 'venues#show', as: :current_venue
   get 'club-history', to: 'history#show', as: :club_history
   get 'hertforshire-venues', to: 'herts_venues#index', as: :herts_venues
-  # get 'current-season', to: 'seasons#show', as: :current_season
+  get 'covid19-protocols', to: 'pages#covid_protocols'
 end
