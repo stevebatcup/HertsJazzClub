@@ -34,3 +34,6 @@ config/deploy
 config/deploy.rb
 
 /bin
+
+# used locally only
+.ruby-version
