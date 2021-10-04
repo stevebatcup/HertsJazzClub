@@ -20,7 +20,6 @@
     <header class="py-3" style="line-height: 1; border-bottom: 1px solid #e5e5e5;">
       <div class="row flex-nowrap justify-content-between align-items-center">
         <div class="col-4 pt-1">
-          <p class="text-muted" style="margin-bottom: 6px;"><small><b>Box office:</b> 0333 666 3366</small></p>
           <p class="text-muted" style="margin-bottom: 8px;"><small><b>Email us:</b> <a href="mailto:info@hertsjazz.co.uk">info@hertsjazz.co.uk</a></small></p>
           <p class="text-muted" style="margin-bottom: 0;">
             <a class="active btn btn-sm btn-outline-secondary" id="newsletter_btn" href="<%= new_newsletter_path %>">Sign up for our newsletter</a>
@@ -63,7 +62,7 @@
         <% if Season.current_season %>
         <a class="p-2 text-muted" href="<%= current_season_path %>">Current season</a>
         <% end %>
-        <a class="p-2 text-muted" href="/covid19-protocols">Covid 19 Protocols</a>
+        <a class="p-2 text-muted" href="/covid19-protocols">Covid 19</a>
         <% if Season.next_season %>
         <a class="p-2 text-muted" href="<%= next_season_path %>">Next season</a>
         <% end %>
